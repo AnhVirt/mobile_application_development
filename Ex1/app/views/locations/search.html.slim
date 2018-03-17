@@ -1,0 +1,36 @@
+.container
+	.main-content
+		section
+			= form_tag  root_path,remote: true,method: :get
+				.row
+					.col-md-3
+						= label_tag 'lat'
+						= text_field_tag 'lat'
+					.col-md-3
+						= label_tag 'long'
+						= text_field_tag 'long'
+					
+				= submit_tag 'search',class: "btn btn-success"
+				
+			textarea.results[style="width: 100%"]
+		section
+			= form_tag  locations_direction_path,remote: true,method: :get,id: "distance_form"
+				.row
+					.col-md-3
+						= label_tag 'lat A'
+						= text_field_tag 'lat_a'
+					.col-md-3
+						= label_tag 'long A'
+						= text_field_tag 'long_a'
+				
+				.row
+					.col-md-3
+						= label_tag 'lat B'
+						= text_field_tag 'lat_b'
+					.col-md-3
+						= label_tag 'long B'
+						= text_field_tag 'long_b'
+					
+				= submit_tag 'search',class: "btn btn-success"
+				
+			textarea.result[style="width: 100%"]

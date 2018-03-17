@@ -1,0 +1,19 @@
+<% if params[:long].present? && params[:lat].present? %>
+$.ajax({
+	url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + <%= params[:lat]%> + ',' + <%=params[:long]%>+'&key=AIzaSyD_OSg_oUDnRIB66GxYeQSAp4PsziKlsSo',
+	type: 'GET',
+	dataType: 'JSON',
+})
+.done(function(data) {
+	if(data.results.length > 0 ){
+		$('textarea.results').val(data.results[0].formatted_address)
+	}
+	else
+		console.log(data.status)
+})
+.fail(function() {
+	console.log("error");
+})
+<%else%>
+	console.log("error");
+<%end%>

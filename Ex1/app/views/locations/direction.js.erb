@@ -1,0 +1,5 @@
+<%unless @status.present?%>
+$('textarea.result').val(<%=@d.round(2)%>)
+<%else%>
+$('textarea.result').val("<%=@status%>")
+<%end%>
